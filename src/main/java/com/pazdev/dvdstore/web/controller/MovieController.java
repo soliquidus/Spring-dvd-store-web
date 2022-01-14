@@ -1,10 +1,13 @@
 package com.pazdev.dvdstore.web.controller;
 
+import com.pazdev.dvdstore.core.entity.Movie;
 import com.pazdev.dvdstore.core.service.DefaultMovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -26,5 +29,11 @@ public class MovieController {
     public String displayMovieCard(@PathVariable("id") long id, Model model){
         model.addAttribute("movie", movieService.getMovieById(id));
         return "movie-details";
+    }
+
+    @PostMapping
+    public String addMovie(@ModelAttribute Movie movie) {
+        movieService.registerMovie(movie);
+        return "movie-added";
     }
 }

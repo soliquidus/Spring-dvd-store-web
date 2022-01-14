@@ -5,13 +5,14 @@ import com.pazdev.dvdstore.core.service.MovieServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
 @Controller
-@RequestMapping("dvdstore-home")
+@RequestMapping
 public class HomeController {
 
     @Autowired
@@ -29,9 +30,13 @@ public class HomeController {
         this.movieService = movieService;
     }
 
-    @RequestMapping
+    @GetMapping("dvdstore-home")
     public String displayHome(Model model) {
         model.addAttribute("movies", movieService.getMovieList());
         return "dvdstore-home";
+    }
+
+    @GetMapping("add-movie-form")
+    public void displayMovieForm(@ModelAttribute Movie movie) {
     }
 }
