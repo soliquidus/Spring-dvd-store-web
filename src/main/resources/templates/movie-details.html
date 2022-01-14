@@ -6,8 +6,14 @@
 </head>
 <body>
 <h1>DVDStore : Détails du film</h1>
-<p>Titre : <span th:text="${movie.title}"></span></p>
-<p>Genre : <span th:text="${movie.genre}"></span></p>
-<p>Description : <span th:text="${movie.description}"></span></p>
+<p>Titre : <!--/*@thymesVar id="movie" type="com.pazdev.dvdstore.core.entity.Movie"*/-->
+    <!--/*@thymesVar id="title" type="java.lang.String"*/-->
+    <span th:text="${movie.title}"></span></p>
+<p>Genre : <!--/*@thymesVar id="movie" type="com.pazdev.dvdstore.core.entity.Movie"*/-->
+    <!--/*@thymesVar id="genre" type="java.lang.String"*/-->
+    <span th:text="${movie.genre}"></span></p>
+<p>Description : <!--/*@thymesVar id="movie" type="com.pazdev.dvdstore.core.entity.Movie"*/-->
+    <!--/*@thymesVar id="description" type="java.lang.String"*/-->
+    <span th:text="${movie.description}"></span></p>
 </body>
 </html>
