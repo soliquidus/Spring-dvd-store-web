@@ -10,31 +10,25 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping
 public class HomeController {
 
     @Autowired
     private MovieServiceInterface movieService;
 
-    public HomeController(MovieServiceInterface movieService) {
-        this.movieService = movieService;
-    }
-
-    public MovieServiceInterface getMovieServiceInterface() {
+    public MovieServiceInterface getMovieService() {
         return movieService;
     }
 
-    public void setMovieServiceInterface(MovieServiceInterface movieService) {
+    public void setMovieService(MovieServiceInterface movieService) {
         this.movieService = movieService;
     }
 
-    @GetMapping("dvdstore-home")
-    public String displayHome(Model model) {
-        model.addAttribute("movies", movieService.getMovieList());
-        return "dvdstore-home";
+    @GetMapping("/dvdstore-home")
+    public void displayHome(){
     }
 
-    @GetMapping("add-movie-form")
-    public void displayMovieForm(@ModelAttribute MovieForm movie) {
+    @GetMapping("/add-movie-form")
+    public void displayMovieForm(@ModelAttribute MovieForm movie){
+
     }
 }

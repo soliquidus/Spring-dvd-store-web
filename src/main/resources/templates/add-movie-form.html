@@ -6,7 +6,7 @@
 </head>
 <body>
 <!--/*@thymesVar id="movieForm" type="com.pazdev.dvdstore.web.form.MovieForm"*/-->
-<form th:action="@{/movie}" th:object="${movieForm}" method="POST">
+<form th:action="@{/movie/add}" th:object="${movieForm}" method="POST">
     <p>Titre</p>
     <p>
         <input type="text" th:field="*{title}"/>
@@ -31,6 +31,5 @@
     <div th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
     <input type="submit" value="Ajouter"/>
 </form>
-
 </body>
 </html>
